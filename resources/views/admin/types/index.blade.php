@@ -29,7 +29,7 @@
         <form action="{{ route('admin.types.destroy', ['type' => $type->id]) }}" method="POST">
                @csrf
                @method('DELETE')
-               <button type="submit" class="confirm-delete-type btn btn-danger" data-name="{{ $type->name }}" data-bs-toggle="modal" data-bs-target="#delete-type" data-projectid="{{ $type->id }}"><i class="fa-solid fa-trash-can"></i></button>
+               <button type="submit" class="confirm-delete-type btn btn-danger" data-name="{{ $type->name }}" data-bs-toggle="modal_type" data-bs-target="#delete-type" data-projectid="{{ $type->id }}"><i class="fa-solid fa-trash-can"></i></button>
             </form>
       </td>
     </tr>

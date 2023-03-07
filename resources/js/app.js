@@ -53,3 +53,27 @@ deleteType.forEach((button) =>{
 
     });
 });
+
+const deleteTechnology = document.querySelectorAll('.confirm-delete-technology[type="submit"]');
+
+deleteTechnology.forEach((button) =>{
+    button.addEventListener('click', function(event){
+        event.preventDefault();
+
+        const technologyName = button.getAttribute('data-title');
+
+        const modal = document.getElementById('delete-technology');
+
+        const bootstrapModal = new bootstrap.Modal(modal);
+        bootstrapModal.show();
+
+        const modalName = modal.querySelector('#modal-name');
+        modalName.textContent = technologyName;
+
+        const deleteButton = modal.querySelector('#confirm-delete');
+        deleteButton.addEventListener('click', () =>{
+                button.parentElement.submit();
+        });
+
+    });
+});

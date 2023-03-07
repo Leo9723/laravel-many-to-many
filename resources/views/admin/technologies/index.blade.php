@@ -29,7 +29,7 @@
         <form action="{{ route('admin.technologies.destroy', ['technology' => $technology->id]) }}" method="POST">
                @csrf
                @method('DELETE')
-               <button type="submit" class="confirm-delete-technology btn btn-danger" data-name="{{ $technology->name }}" data-bs-toggle="modal" data-bs-target="#delete-technology" data-projectid="{{ $technology->id }}"><i class="fa-solid fa-trash-can"></i></button>
+               <button type="submit" class="confirm-delete-technology btn btn-danger" data-name="{{ $technology->name }}" data-bs-toggle="modal_technology" data-bs-target="#delete-technology" data-projectid="{{ $technology->id }}"><i class="fa-solid fa-trash-can"></i></button>
             </form>
       </td>
     </tr>
