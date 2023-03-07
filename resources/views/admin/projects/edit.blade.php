@@ -40,6 +40,16 @@
         {{ $message }}
     </div>
         @enderror
+
+        <div class="form-group">
+            <label class="control-lable" for="">tecnologie:</label>
+            @foreach($technologies as $technology)
+
+                <input type="checkbox" name="technologies[]" class="form-check-input" value="{{ $technology->id }}" {{ $project->technologies->contains($technology) ? 'checked' : '' }}>
+                <label class="form-check-label">{{ $technology->name }}</label>
+
+            @endforeach
+        </div>
     
     <input type="submit" value="Invia" class="sub">
     

@@ -81,9 +81,11 @@ class ProjectController extends Controller
     {
         $project = Project::find($project);
         $types = Type::all();
+        $technologies = Technology::all();
+
 
         if($project){
-            return view('admin.projects.edit', compact('project', 'types'));
+            return view('admin.projects.edit', compact('project', 'types', 'technologies'));
         };
     }
 
@@ -101,6 +103,10 @@ class ProjectController extends Controller
         $form_data = $request->validated();
 
         $project->update($form_data);
+
+        if($request->has('technologies')){
+            $project->technologies()->sync($request->technologies);
+        }
 
         return redirect()->route('admin.projects.index', ['project' => $project->id])->with('message', 'Progetto modificato correttamente');
     }
